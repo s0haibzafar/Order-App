@@ -5,6 +5,10 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './admin/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
+
 
 @NgModule({
   declarations: [
@@ -15,6 +19,9 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatToolbarModule,
 
   ],
   providers: [],
