@@ -5,7 +5,7 @@ import { HomeComponent } from './admin/home/home.component';
 
 const routes: Routes = [
   {
-    path :'home',
+    path :'',
     component:HomeComponent
   },
  
