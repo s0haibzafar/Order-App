@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     BrowserAnimationsModule,
     AppRoutingModule,
     MatSidenavModule,
+    MatIconModule,
     MatButtonModule,
     MatToolbarModule,
 
