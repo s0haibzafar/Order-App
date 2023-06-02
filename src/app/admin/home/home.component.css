@@ -1,0 +1,9 @@
+mat-sidenav{
+    background-color: aquamarine;
+    width: 230px;
+    height: 100%;
+}
+mat-sidenav-content{
+    height: 100vh;
+    background-color: antiquewhite;
+}
