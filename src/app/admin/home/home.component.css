@@ -1,0 +1,8 @@
+.table_width{
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+.bg_color{
+    background-color: #007bff;
+}
