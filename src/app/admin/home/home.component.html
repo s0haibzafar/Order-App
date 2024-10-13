@@ -1,69 +1,59 @@
 <!-- Order List Page -->
 
-
 <div id="orderListPage">
     <h1 class="pt-3">Orders</h1>
 
+    <div class="table_width d-flex">
+        <div class="ms-auto">
 
-<table class="table caption-top table_width">
-    <thead class="table-dark bg_color">
-        <tr>
-            <th scope="col" class="bg_color">Serial No.</th>
-            <th scope="col" class="bg_color">Order No.</th>
-            <th scope="col" class="bg_color">Name</th>
-            <th scope="col" class="bg_color">Contact</th>
-            <th scope="col" class="bg_color">Amount</th>
-            <th scope="col" class="bg_color">Status</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td class="status-paid" >Paid</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            <td class="status-pending" >Pending</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-        </tr>
-    </tbody>
-</table>
+            <button class="delete-btn btn-sm btn-danger " [hidden]="!isDeleteEnabled" (click)="deleteSelectedItems()">Delete</button>
+            <button class="delete-btn btn-sm btn-success ms-1" [hidden]="!isDeleteEnabled" (click)="updateSelectedItems()">Paid</button>
+        </div>
+    </div>
 
+    <table class="table caption-top table_width">
+        <thead class="table-dark bg_color">
+            <tr>
+                <th scope="col" class="bg_color">Order#</th>
+                <th scope="col" class="bg_color">Date</th>
+                <th scope="col" class="bg_color">Name</th>
+                <th scope="col" class="bg_color">Contact</th>
+                <th scope="col" class="bg_color">Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of orderItems">
+                <th scope="row" *ngIf="item.status=='pending'" class="status-pending">
+                    
+                    <div class="d-flex justify-content-around" >
+                        <input class="w-25" type="checkbox" [(ngModel)]="item.selected" (change)="onCheckboxChange()" />
+                        <span class="pt-1" >{{ item.id }}</span>
+                    </div>
+
+                </th>
+                <th scope="row" *ngIf="item.status=='paid'" class="status-paid">
+                    <div class="d-flex justify-content-around" >
+                        <input class="w-25" type="checkbox" [(ngModel)]="item.selected" (change)="onCheckboxChange()" />
+                        <span class="pt-1" >{{ item.id }}</span>
+                    </div>
+                </th>
+                <td>{{ item.date }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.phone }}</td>
+                <td>Rs.{{ item.amount }}</td>
+            </tr>
+
+        </tbody>
+    </table>
 
     <!-- Add Order Button -->
-    <button id="addOrderButton" class="add-btn" routerLink="/order" > 
-        <p style="margin-top:-5px" >+</p> 
+    <button id="addOrderButton" class="add-btn" routerLink="/order">
+        <p style="margin-top:-5px">+</p>
     </button>
-    <!-- <button id="addOrderButton" class="add-btn">
-        <img src="/assets/images/pluse.png" alt="Finance Icon" class="finance-icon">
-    </button> -->
+   
     <!-- Finance Button with Icon -->
     <button id="financeButton" class="finance-btn" routerLink="/graph">
         <img src="/assets/images/graph.png" alt="Finance Icon" class="finance-icon">
     </button>
 
-</div>
-<!--  -->
-<!-- Finance Page -->
-<div id="financePage" class="hidden">
-    <h2>Finance Overview</h2>
-    <div id="chartContainer">
-        <canvas id="financeChart"></canvas>
-    </div>
-    <button id="backToOrdersButton">Back to Orders</button>
 </div>

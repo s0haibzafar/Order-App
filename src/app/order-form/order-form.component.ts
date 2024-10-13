@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { DexieService, OrderItem } from '../services/dexie-service.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-order-form',
@@ -15,7 +18,7 @@ export class OrderFormComponent implements OnInit {
     status: new FormControl('pending', [Validators.required]),
   });
 
-  constructor() { }
+  constructor(private dexieService: DexieService, protected router: Router,) { }
 
   ngOnInit(): void {
   }
@@ -31,12 +34,27 @@ export class OrderFormComponent implements OnInit {
   }
 
 
+  getCurrentTime(): string {
+    const now = moment();
+    const formattedTime = now.format('YYYY-MM-DD HH:mm:ss'); // Customize the format as needed
+    return formattedTime;
+  }
 
   Submit() {
     if (!this.reactiveLoginForm.valid) {
       return;
     }
+
     console.log(" data ", this.reactiveLoginForm.value)
+
+    // var data: OrderItem;
+    const orderItem = { ...this.reactiveLoginForm.value };
+    const date = this.getCurrentTime();
+
+    this.dexieService.addItem({ ...orderItem, date } as OrderItem).then(() => {
+      this.router.navigate(['/']);
+    });
+
   }
 
 }
