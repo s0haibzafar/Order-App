@@ -1,22 +1,8 @@
-mat-sidenav{
-    background-color: rgb(25, 73, 57);
-    width: 230px;
-    height: 100%;
+.table_width{
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
 }
-mat-sidenav-content{
-    height: 100vh;
-    background-color: antiquewhite;
-}
-
-mat-toolbar{
-    justify-content: space-between;
-}
-
-mat-icon{
-    margin-left: 15px;
-    color: gray;
-}
-
-.box{
-    margin-top: 15px;
+.bg_color{
+    background-color: #007bff;
 }

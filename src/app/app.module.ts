@@ -3,29 +3,26 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './admin/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatButtonModule} from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
-import { SidebarComponent } from './admin/sidebar/sidebar.component';
+import { OrderFormComponent } from './order-form/order-form.component';
+import { OrderGraphComponent } from './order-graph/order-graph.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    SidebarComponent
+    OrderFormComponent,
+    OrderGraphComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule, 
+    ReactiveFormsModule,
     AppRoutingModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatButtonModule,
-    MatToolbarModule,
 
   ],
   providers: [],

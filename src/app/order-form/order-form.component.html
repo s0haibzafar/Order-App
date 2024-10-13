@@ -1,0 +1,42 @@
+<h1 class="pt-3">Add New Order</h1>
+<form [formGroup]="reactiveLoginForm" (ngSubmit)="Submit()">
+    <div class="mb-3">
+        <label for="exampleInputName1" class="form-label">Name</label>
+        <input type="text" class="form-control" aria-describedby="nameHelp" placeholder="Enter Name"
+            formControlName="name">
+        <div class="form-text text-danger" *ngIf="name?.errors?.['required']">
+            Name is required
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputContactNumber1" class="form-label">Contact Number</label>
+        <input type="number" class="form-control" aria-describedby="contactNumberHelp"
+            placeholder="Enter Contact Number" formControlName="phone">
+        <div class="form-text text-danger" *ngIf="phone?.errors?.['required']">
+            Contact Number is required
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputAmount1" class="form-label">Amount</label>
+        <input type="number" class="form-control" aria-describedby="amountHelp" placeholder="Enter Amount"
+            formControlName="amount">
+        <div class="form-text text-danger" *ngIf="amount?.errors?.['required']">
+            Amount is required
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputStatus1" class="form-label">Status</label>
+        <select class="form-select" aria-label="Default select example" formControlName="status">
+            <option value="paid">Paid</option>
+            <option value="pending">Pending</option>
+        </select>
+    </div>
+
+    <div class="d-flex ">
+        <button type="submit" class="btn btn-primary">Add order</button>
+        <button  class="btn btn-warning ms-auto" routerLink="/" >Cancel</button>
+    </div>
+</form>
